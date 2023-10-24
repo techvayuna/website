@@ -1,0 +1,314 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #212121;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  .App1 {
+    text-align: center;
+    position: relative;
+  }
+  
+  .background-video-container1 {
+    position: fixed;
+    width: 400%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  video {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0; /* Set z-index to 0 for the video */
+    object-fit: cover;
+  }
+  
+  .overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Set z-index to 1 for the overlay */
+  }
+  
+  .container3 {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .navbar {
+    width: 100%;
+    height: 3rem;
+    border-radius: 12px;
+    padding: 5px 10px;
+    align-items: center;
+    display: flex;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .menu_icon {
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .text {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    color: #212121;
+    z-index: 1;
+  }
+  
+  .menu_icon div {
+    width: 35px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    margin: 8px 0;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .menu_items {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    text-decoration: none;
+    height: 10rem;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .menu_items a {
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .menu_items a:hover {
+    background-color: grey;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Middle section styles */
+  .middle1 {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    padding: 50px 0;
+    position: relative;
+    text-align: center;
+    z-index: 1; /* Set z-index to 1 for the middle section */
+    color: white;
+  }
+  
+  .middle1 h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .middle1 .start1 {
+    color: #e80505;
+  }
+  
+  .middle1 .MidlleText1 {
+    color: orangered;
+  }
+  
+  /* About Us styles */
+  .container11 {
+    text-align: center;
+    color: #fffcfc;
+    padding: 50px;
+    z-index: 1; /* Set z-index to 1 for the container */
+    position: relative;
+  }
+  
+  .container11 h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: red;
+  }
+  
+  .about-us-content1 {
+    margin-top: 0.1px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    padding: 20px;
+    display: block;
+    text-align: justify;
+  }
+  
+  .about-us-content1 .about1 {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* Past Events styles */
+  .pastEvents1 {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    z-index: 1; /* Set z-index to 1 for the past events section */
+    position: relative;
+  }
+  
+  .pastEvents1 h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .Frame11 img {
+    width: 150px;
+    margin: 20px;
+  }
+  
+  .poster11 ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .poster11 li img {
+    width: 150px;
+  }
+  
+  /* Container 2 styles */
+  .container21 {
+    color: #333;
+    padding: 50px;
+    text-align: center;
+    z-index: 1; /* Set z-index to 1 for container 2 */
+    position: relative;
+  }
+  
+  .container21 h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    justify-content: left; /* Center horizontally */
+    align-items: center;
+    color: orangered;
+  }
+  
+  .About-Event1 {
+    padding: 0 10%;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    padding: 30px;
+    color: white;
+  }
+  
+  .registration-form1 {
+    margin-top: 20px;
+  }
+  
+  .code-red-heading1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  form button {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .submission-response1 {
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  
+  .success-message1 {
+    color: #00bcd4;
+  }
+  
+  .error-message1 {
+    color: red;
+  }
+  
+  /* Footer styles */
+  .footer1 {
+    padding: 20px 0;
+    z-index: 1; /* Set z-index to 1 for the footer */
+    position: relative;
+  }
+  
+  .footer1 ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .footer1 ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer1 ul li a img {
+    width: 40px;
+  }
+  
+  .footer1 ul li a i {
+    margin-top: 10px;
+  }
+  

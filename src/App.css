@@ -1,38 +1,620 @@
-.App {
+/* Reset some default styles and set up the background video */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Set the background color of the body to black */
+body {
+  background: rgb(10, 6, 6);
+}
+
+/* Styles for the background video */
+.background-video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  
+  
+  object-fit: cover;
+}
+
+/* Styles for the header and navigation links */
+/* nav bar not working on scrooling means hover not working */
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  font-size: 2rem;
+}
+
+header img {
+  width: 100px;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header ul li a:hover {
+  color: #00bcd4;
+}
+
+.mobile-menu {
+  display: none; /* Initially hide the mobile menu */
+  z-index: 1;
+  font-size: 2rem; /* Adjust the font size as needed */
+    padding: 10px 20px; /* Adjust the padding as needed to increase the clickable area */
+    color: #c3e6cb;
+    
+
+}
+
+.hamburger {
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  padding: 5px;
+}
+
+.bar {
+  background-color: white;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  transition: 0.4s;
+  
+}
+
+.menu-list {
+  list-style: none;
+  display: flex; /* Show the regular navigation */
+  background: rgba(19, 10, 10, 0.938);
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 1;
+  text-align: right;
+}
+
+.menu-list li {
+  padding: 10px;
+}
+.middle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0); /* Background color with transparency */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.start{
+  color: orangered;
+}
+.MidlleText{
+  color:red;
+}
+.overlay {
+  background-color: rgba(29, 26, 26, 0.674); /* 0.5 represents the level of transparency, you can adjust it as needed */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.container1 {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 400px;
+  margin: 200px;
+  
+}
+
+.about-us, .about-us-content {
+  flex: 1;
+  padding: 20px;
+  border: 1px  #000000;
+}
+
+.about-us-content {
+  color:rgb(255, 255, 255);
+  font-size: 1rem;
+  margin-bottom: 200px;
+  padding: 30px;
+}
+.about-us h2{
+  color:rgb(213, 108, 9);
+  font-size: 50px;
+  text-align: center;
+  text-shadow: #000000;
+
+}
+
+
+.pastEvents{
+  flex: 1;
+  margin-top:600px;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border: 1px  #000000;
+  width: 100%;
+  max-width: 600px;
+
+
+
+}
+.pastEvents h2{
+
+  color:rgb(213, 108, 9);
+  font-size: 50px;
+  text-align: center;
+  align-items: center;
+  text-shadow: #000000;
+  position: relative;
+  padding-left: 200px;
+  padding-right: 50px;
+  padding-top: 100px;
+  padding-bottom: 70px;
+  
+}
+.Frame1
+{
+margin-top: 200px;
+z-index: 1; /* Set a high z-index to bring it to the foreground */
+}
+
+.poster1{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+/* Show the name when an image is flipped */
+
+
+
+.container2{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 350px;
+  margin-bottom: 100px;
+  margin-left: 0px;
+  margin-right: 00px;
+  padding: 200px;
+  border: 1px  #000000;
+}
+
+
+
+
+.About-Event {
+
+  flex: 1;
+  text-align: center;
+  padding: 20 0px 20px 60px;
+  border-radius: 5px;
+  margin-top: 20px;
+  color:#c3e6cb
+}
+
+.About-Event h2 {
+  color: red;
+}
+
+.About-Event p {
+  text-align: left;
+  color:#c3e6cb
+}
+.registration-form {
+  flex: 1;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  background: transparent; /* Set the background of the form to be transparent */
+  color: white; /* Set text color to white */
+  display: flex; /* Display form fields in a row */
+  justify-content: space-between; /* Space the form fields evenly */
+  align-items: center;
+  }
+  
+
+form label, form input, form button {
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+  max-width: none;
+}
+
+#submission-response {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+/* Add this CSS to your App.css file */
+
+/* Style for the form */
+
+
+.registration-form label {
+  
+  margin: 10px 0;
+  width: 30%; /* Adjust the width as needed */
+    text-align: right;
+    margin: 5px;
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 3px;
+}
+
+.registration-form button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Style for the submission response message */
+.submission-response {
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.success-message {
+  color: green;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  color: red;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+/* Existing CSS */
+
+/* New CSS for the "Code Red 2.0" heading */
+.code-red-heading {
+  color: red;
+}
+
+
+/* CSS for the toggle button */
+.toggle_btn {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.toggle_btn .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CSS for the tcontainer */
+.tcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ .registration-form {
+  margin: 20px;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.registration-form .code-red-heading {
+  color: red;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.registration-form form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+}
+
+.registration-form label {
+  text-align: right;
+  color: wheat;
+  width:30%;
+    text-align: left;
+
+}
+
+.registration-form input {
+  width: 100%; /* Set the input width to 100% to make it full width */
+  padding: 10px;
+  border: 1px solid #020101;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.registration-form button {
+  width: 100%; /* Set the button width to 100% */
+  max-width: 200px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px; 
+}
+
+.registration-form button:hover {
+  background-color: #555;
+}
+
+#submission-response {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+/* Add this to your existing CSS file */
+
+/* CSS for the footer */
+.footer {
+  position: fixed;
+  bottom: 100px;
+  
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  z-index: 1;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer li {
+  margin-bottom: 10px;
+}
+
+.footer li a {
   color: white;
+  display: flex;
+  align-items: center;
+ text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  transition: 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+.footer li:nth-child(1) a {
+  background: #ffffff;
+  color: #000000;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.footer li:nth-child(2) a {
+  background: #ffffff;
+  color: #000000;
+}
+
+.footer li:nth-child(3) a {
+  background: #0d11ea;
+}
+
+.footer li:nth-child(4) a {
+  background: #2867B2;
+}
+
+.footer li:nth-child(5) a {
+  background: #333;
+}
+
+.footer li:nth-child(6) a {
+  background: #ff0000;
+}
+
+.footer li a i {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  font-size: 27px;
+}
+
+.footer li a span {
+  display: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer li:hover a span {
+  padding-left: 30%;
+  display: block;
+}
+
+a:hover {
+  z-index: 1;
+  width: 200px;
+}
+ 
+/* Media query for mobile nav menu */
+/* Default styles for larger screens */
+
+/* ... (your existing styles) ... */
+
+/* Default background styles for larger screens */
+body {
+  background-color: #f0f0f0; /* Fallback background color for larger screens */
+  /* Add other styles for larger screens */
+}
+
+/* Mobile (up to 576px wide) */
+@media (max-width: 576px) {
+  body {
+    background: none; /* Clear the background color for mobile devices */
   }
-  to {
-    transform: rotate(360deg);
+
+  /* Add styles for video container */
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* Send the video to the background */
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resize the video to cover the screen */
+    z-index: -1;
+  }
+
+  /* Add other mobile-specific styles */
+}
+
+/* Add other media queries and styles for different screen sizes if needed */
+@media (max-width: 576px) {
+  body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Set the background color of the body to black */
+body {
+  background: rgb(10, 6, 6);
+}
+
+
+head img {
+  font-weight: 700;
+  color: #2f2020;
+  text-decoration: none;
+  letter-spacing: 2em;
+  letter-spacing: 2px;
+  transition: 0.6s;
+}
+
+head img:hover {
+  filter: grayscale(1);
+
+}
+
+
+
+
+  .overlay {
+    background-color: rgba(29, 26, 26, 0.674); /* 0.5 represents the level of transparency, you can adjust it as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+.middle{
+display: block; 
+position: relative;
+padding: 40px 0px 0px 800px ;
+
+width: 100vh;
+height: 100vh;
+
+
+}
+}
+@media (max-width: 576px) {
+
+  .mobile-menu {
+    display: flex; /* Show the mobile menu on mobile devices */
+    align-items: center;
+    justify-content: flex-end;
+
+  }
+
+  .hamburger {
+    display: flex; /* Show the hamburger icon on mobile */
+  }
+
+  head ul {
+    display: none; /* Hide the regular navigation on mobile */
+  }
+
+  /* Styles for the expanded mobile menu when hamburger is clicked */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
 }
