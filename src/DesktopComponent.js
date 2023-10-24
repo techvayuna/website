@@ -95,7 +95,7 @@ function DesktopComponent() {
               <a href="#about">About</a>
             </li>
             <li>
-              <a href="#registration-form">Events Registration</a>
+              <a href="#events">Events Registration</a>
             </li>
             <li>
               <a href="/projects">Join Us</a>
