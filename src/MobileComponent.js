@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Mobile.css';
 import image from './logo.png';
@@ -64,6 +64,21 @@ function MobileComponent() {
       formElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const formRef = useRef(null); // Create a ref for the form section
+
+  useEffect(() => {
+    // Function to scroll to the form
+    const scrollToForm = () => {
+      if (formRef.current) {
+        formRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    // Check if the URL contains #formRef
+    if (window.location.hash === '#formRef') {
+      scrollToForm(); // Scroll to the form if the URL contains #formRef
+    }
+  }, []);
   return (
     <Router>
       <div className="App1">
@@ -149,11 +164,11 @@ function MobileComponent() {
           </div>
           <h2 className="code-red-heading1">Register here</h2>
 
-          <div className="registration-form" id="events">
+          <div className="registration-form" id="events" ref={formRef}>
             <form id="registration-form" noValidate>
               <label htmlFor="name">Name:</label>
               <input type="text" id="name" name="Name" required />
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email"  ref={formRef} >Email:</label>
               <input type="email" id="email" name="Email" required />
               <label htmlFor="mobile">Mobile Number:</label>
               <input type="tel" id="Mobile Number" name="Mobile Number" required />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import image from './logo.png';
 import video from './back.mp4';
@@ -67,6 +67,21 @@ function DesktopComponent() {
   const toggleMobileMenu = () => {
     setMobileMenuActive(!mobileMenuActive);
   };
+  const formRef = useRef(null); // Create a ref for the form section
+
+  useEffect(() => {
+    // Function to scroll to the form
+    const scrollToForm = () => {
+      if (formRef.current) {
+        formRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    // Check if the URL contains #formRef
+    if (window.location.hash === '#formRef') {
+      scrollToForm(); // Scroll to the form if the URL contains #formRef
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -151,8 +166,10 @@ function DesktopComponent() {
           "Join us as we delve into the world of AI, learn from industry experts, and compete for prizes that recognize your technical prowess."
           "Code Red 2.0 is where innovation meets competition, making it a must-attend event for tech-savvy students at SRM University."
         </div>
-        <div className="registration-form" id="events">
-          <h2 className="code-red-heading">Register here</h2>
+        <h2 className="code-red-heading">Register here</h2>
+
+        <div className="registration-form" id="events" ref={formRef}>
+          <section id="form">
           <form id="registration-form" noValidate>
             <label htmlFor="name">Name:</label>
             <input type="text" id="name" name="Name" required />
@@ -172,6 +189,7 @@ function DesktopComponent() {
               Submit
             </button>
           </form>
+          </section>
           {submissionMessage && (
             <div id="submission-response" className={submissionError ? 'error-message' : 'success-message'}>
               {submissionMessage}
