@@ -58,10 +58,20 @@ function MobileComponent() {
   const toggleMobileMenu = () => {
     setMobileMenuActive(!mobileMenuActive);
   };
-
+  const scrollToForm = () => {
+    const formElement = document.getElementById('registration-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <Router>
       <div className="App1">
+      <div className="scroll-button">
+          <a href="#events1" className="button-link" onClick={scrollToForm}>
+            Event Registration
+          </a>
+        </div>
         <div className="background-video-container1">
           <video autoPlay loop muted>
             <source src={video} type="video/mp4" />
@@ -127,9 +137,7 @@ function MobileComponent() {
             </ul>
           </div>
         </div>
-        <div class="floating-button">
-          <a href="#events1" class="button-link">Event Registration</a>
-        </div>
+       
         <div className="container21">
           <div className="About-Event1">
             <h2>Code Red 2.0</h2>
@@ -139,9 +147,10 @@ function MobileComponent() {
             "Join us as we delve into the world of AI, learn from industry experts, and compete for prizes that recognize your technical prowess."
             "Code Red 2.0 is where innovation meets competition, making it a must-attend event for tech-savvy students at SRM University."
           </div>
-          <div className="registration-form1" id="events1">
-            <h2 className="code-red-heading1">Register here</h2>
-            <form id="registration-form">
+          <h2 className="code-red-heading1">Register here</h2>
+
+          <div className="registration-form" id="events">
+            <form id="registration-form" noValidate>
               <label htmlFor="name">Name:</label>
               <input type="text" id="name" name="Name" required />
               <label htmlFor="email">Email:</label>
@@ -153,7 +162,7 @@ function MobileComponent() {
               <label htmlFor="department">Department:</label>
               <input type="text" id="department" name="Department" required />
               <label htmlFor="section">Section:</label>
-              <input type="text" id="section" name="Section" required />
+              <input type="text" id="section" name ="section" required />
               <label htmlFor="year">Year:</label>
               <input type="text" id="year" name="Year" required />
               <button id="submit-button" type="button" onClick={handleSubmit}>
@@ -164,6 +173,7 @@ function MobileComponent() {
           </div>
         </div>
         <div className="footer1">
+          Join us on
           <ul>
             <li>
               <a href="https://instagram.com/tech_vayuna?igshid=MzRlODBiNWFlZA==">
