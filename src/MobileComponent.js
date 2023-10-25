@@ -18,11 +18,28 @@ import twitter from './twitter.png';
 function MobileComponent() {
   const [mobileMenuActive, setMobileMenuActive] = useState(false);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const form = document.getElementById('registration-form1');
     const responseElement = document.getElementById('submission-response1');
 
     if (form) {
+      // Get the email input value
+      const emailInput = form.querySelector('#email');
+      const nameInput = form.querySelector('#name');
+      const mobileInput = form.querySelector('#mobile');
+      const addressInput = form.querySelector('#address');
+      const departmentInput = form.querySelector('#department');
+      const sectionInput = form.querySelector('#section');
+      const yearInput = form.querySelector('#year');
+
+      // Check if the email ends with '@srmist.edu.in'
+      if (!emailInput.value.endsWith('@srmist.edu.in')) {
+        responseElement.textContent = 'Please use an @srmist.edu.in email address.';
+        responseElement.classList.add('error-message');
+        return;
+      }
+
       const formData = new FormData(form);
 
       try {
@@ -40,6 +57,14 @@ function MobileComponent() {
           if (result.result === 'success') {
             responseElement.textContent = 'Form submitted successfully!';
             responseElement.classList.add('success-message');
+            // Clear input fields after a successful submission
+            emailInput.value = '';
+            nameInput.value = '';
+            mobileInput.value = '';
+            addressInput.value = '';
+            departmentInput.value = '';
+            sectionInput.value = '';
+            yearInput.value = '';
           } else {
             responseElement.textContent = 'Form submission failed.';
             responseElement.classList.add('error-message');
@@ -59,7 +84,7 @@ function MobileComponent() {
     setMobileMenuActive(!mobileMenuActive);
   };
   const scrollToForm = () => {
-    const formElement = document.getElementById('registration-form');
+    const formElement = document.getElementById('events1');
     if (formElement) {
       formElement.scrollIntoView({ behavior: 'smooth' });
     }
@@ -82,7 +107,7 @@ function MobileComponent() {
   return (
     <Router>
       <div className="App1">
-      <div className="scroll-button">
+        <div className="scroll-button">
           <a href="#events1" className="button-link" onClick={scrollToForm}>
             Event Registration
           </a>
@@ -104,7 +129,7 @@ function MobileComponent() {
                     <a href="#about1">About</a>
                   </li>
                   <li>
-                    <a href="#registration-form">Events Registration</a>
+                    <a href="#registration-form1">Events Registration</a>
                   </li>
                   <li>
                     <a href="/projects1">Join Us</a>
@@ -152,7 +177,7 @@ function MobileComponent() {
             </ul>
           </div>
         </div>
-       
+
         <div className="container21">
           <div className="About-Event1">
             <h2>Code Red 2.0</h2>
@@ -162,32 +187,32 @@ function MobileComponent() {
             "Join us as we delve into the world of AI, learn from industry experts, and compete for prizes that recognize your technical prowess."
             "Code Red 2.0 is where innovation meets competition, making it a must-attend event for tech-savvy students at SRM University."
           </div>
-          <h2 className="code-red-heading1">Register here</h2>
+          <h2 className="code-red-heading1" id="formRef" ref={formRef}>Register here</h2>
 
-          <div className="registration-form" id="events" ref={formRef}>
-            <form id="registration-form" noValidate>
+          <div className="registration-form" id="events1">
+            <form id="registration-form1" noValidate ref={formRef} onSubmit={handleSubmit}>
               <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="Name" required />
-              <label htmlFor="email"   >Email:</label>
-              <input type="email" id="email" name="Email" required />
+              <input type="text" id="name" name="name" required />
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" name="email" required />
               <label htmlFor="mobile">Mobile Number:</label>
-              <input type="tel" id="Mobile Number" name="Mobile Number" required />
+              <input type="tel" id="mobile" name="mobile" required />
               <label htmlFor="address">Reg No:</label>
-              <input type="text" id="Number" name="Reg" required />
+              <input type="text" id="address" name="reg" required />
               <label htmlFor="department">Department:</label>
-              <input type="text" id="department" name="Department" required />
+              <input type="text" id="department" name="department" required />
               <label htmlFor="section">Section:</label>
-              <input type="text" id="section" name ="section" required />
+              <input type="text" id="section" name="section" required />
               <label htmlFor="year">Year:</label>
-              <input type="text" id="year" name="Year" required />
-              <button id="submit-button" type="button" onClick={handleSubmit} >
+              <input type="text" id="year" name="year" required />
+              <button id="submit-button" type="button" onClick={handleSubmit}>
                 Submit
               </button>
             </form>
             <div id="submission-response1" className="submission-response1"></div>
           </div>
         </div>
-        <div className="footer1" ref={formRef}>
+        <div className="footer1">
           Join us on
           <ul>
             <li>

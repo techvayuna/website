@@ -30,7 +30,7 @@ function DesktopComponent() {
     const form = document.getElementById('registration-form');
     const formData = new FormData(form);
     const email = formData.get('Email');
-
+  
     if (form.checkValidity() && email.endsWith('@srmist.edu.in')) {
       try {
         const response = await fetch(
@@ -40,12 +40,14 @@ function DesktopComponent() {
             body: formData,
           }
         );
-
+  
         if (response.ok) {
           const result = await response.json();
-
+  
           if (result.result === 'success') {
             setSubmissionMessage('Form submitted successfully!');
+            // Clear form fields after a successful submission
+            form.reset();
           } else {
             setSubmissionMessage('Form submission failed.');
             setSubmissionError(true);
