@@ -168,7 +168,7 @@ function MobileComponent() {
             <form id="registration-form" noValidate>
               <label htmlFor="name">Name:</label>
               <input type="text" id="name" name="Name" required />
-              <label htmlFor="email"  ref={formRef} >Email:</label>
+              <label htmlFor="email"   >Email:</label>
               <input type="email" id="email" name="Email" required />
               <label htmlFor="mobile">Mobile Number:</label>
               <input type="tel" id="Mobile Number" name="Mobile Number" required />
@@ -180,14 +180,14 @@ function MobileComponent() {
               <input type="text" id="section" name ="section" required />
               <label htmlFor="year">Year:</label>
               <input type="text" id="year" name="Year" required />
-              <button id="submit-button" type="button" onClick={handleSubmit}>
+              <button id="submit-button" type="button" onClick={handleSubmit} >
                 Submit
               </button>
             </form>
             <div id="submission-response1" className="submission-response1"></div>
           </div>
         </div>
-        <div className="footer1">
+        <div className="footer1" ref={formRef}>
           Join us on
           <ul>
             <li>
